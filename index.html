@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <link rel="stylesheet" href="./style.css">
+  </head>
+  <title>Webex Meetings Object Recognition Demo</title>
+  <body>
+    <h1>Object Recognition in Webex Meeting</h1>
+    <p>This sample demonstrates how to track objects using <a href="https://victordibia.com/handtrack.js/#/" target="_blank">Handtrack.js</a> and the Webex Meetings JS SDK.</p>
+    <p>To begin, enter your access token and click <b>authorize</b>. Then, start a meeting with the <b>join</b> button. Once the meeting is established, click the <b>startTracking</b> button.</p>
+    <input id="token" name="token" placeholder="Personal Access Token" type="text"/>
+    <button id="authorize" title="authorize" type="button">authorize</button>
+    <br/>
+    <input id="invitee" name="invitee" placeholder="Person ID or Email Address or SIP URI or Room ID" type="text"/>
+    <button id="join" title="join" type="button">join</button>
+    <div style="">
+      <audio id="remote-view-audio" autoplay></audio>
+      <video id="remote-view-video" autoplay></video>
+    </div>
+    <div style="display: flex">
+      <video id="local-video" width="480px" height="270px" autoplay></video>
+      <canvas id="canvas" width="480px" height="270px"></canvas>
+    </div>
+    <button id="mute" title="mute/unmute" type="button">mute/unmute</button>
+    <button id="hangup" title="hangup" type="button">cancel/hangup</button>
+    <button id="updateVideo" title="startTracking" type="button">startTracking</button>
+
+    <script crossorigin src="https://unpkg.com/webex@^1/umd/webex.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/handtrackjs/dist/handtrack.min.js"> </script>
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+    <script src="./index.js"></script>
+  </body>
+</html>

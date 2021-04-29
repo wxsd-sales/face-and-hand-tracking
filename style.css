@@ -1,0 +1,16 @@
+body {
+  font-family: sans-serif;
+}
+#remote-view-video {
+  height:270px;
+  width:480px;
+}
+
+#local-video {
+
+}
+
+#canvas {
+  height:270px;
+  width:480px;
+}
