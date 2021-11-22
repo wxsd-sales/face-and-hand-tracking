@@ -20,31 +20,24 @@ handTrack.load(modelParams).then(lmodel => {
 });
 
 
-function startVideo() {
-  isVideo = true
-  runDetection()
-}
-
-
 function toggleVideo() {
   if (!isVideo) {
-      startVideo();
+    isVideo = true
+    runDetection()
   } else {
-      handTrack.stopVideo(video)
-      isVideo = false;
+    handTrack.stopVideo(video)
+    isVideo = false;
   }
 }
-
 
 function runDetection() {
   model.detect(testVideo).then(predictions => {
       console.log("Predictions: ", predictions);
       model.renderPredictions(predictions, canvas, context, testVideo);
-
       if (isVideo) {
           setTimeout(() => {
               runDetection()
-          }, 10);
+          }, 100);
       }
       $("#local-video").hide();
   });
@@ -58,6 +51,8 @@ function bindMeetingEvents(meeting) {
 
   // Handle media streams changes to ready state
   meeting.on('media:ready', (media) => {
+    console.log('media:ready:');
+    console.log(media);
     if (!media) {
       return;
     }
@@ -112,6 +107,7 @@ function bindMeetingEvents(meeting) {
   document.getElementById('updateVideo').addEventListener('click', () => {
     console.log('updated!');
     myStream = canvas.captureStream();
+    console.log(myStream);
     meeting.updateVideo({sendVideo:true, receiveVideo: true, stream:myStream});
     setTimeout(() => {
       console.log('second update');
