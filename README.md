@@ -1,4 +1,4 @@
-# ObjectTracking
+# Face-and-Hand-Tracking
 This demo uses [Handtrack.js](https://victordibia.com/handtrack.js/#/) to track objects locally 
 and sends the capture canvas as the outgoing stream of a Webex meeting using the [Webex JS SDK](https://developer.webex.com/docs/sdks/browser).
 
